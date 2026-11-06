@@ -1,6 +1,59 @@
 # 🦷 Sorriso Odontologia
 
-Atividade do **Aluno 25**: lembrete de limpeza dentária preventiva. Uma tela em React + Vite + Tailwind CSS, com notificações locais Android pelo Capacitor. Sem servidor, cadastro ou banco de dados.
+**Um lembrete simples para cuidar do seu sorriso.**
+
+Aplicativo Android desenvolvido para a atividade do **Aluno 25**, com o tema **limpeza dentária preventiva**. O Sorriso Odontologia envia lembretes locais e permite confirmar a presença diretamente pela notificação do celular.
+
+A proposta é demonstrar, em uma única tela, a integração entre uma interface React e os recursos nativos do Android. O aplicativo funciona sem backend, cadastro ou banco de dados.
+
+[📱 Baixar APK](https://github.com/MatheusNunes1B/odontologia/actions/runs/42252528647/artifacts/13520408479) · [🎬 Vídeo completo](./Screen_Recording_20261106_133653_Sorriso.mp4) · [💻 Código-fonte](./src/App.jsx) · [⚙️ Builds no Actions](https://github.com/MatheusNunes1B/odontologia/actions/workflows/build-apk.yml)
+
+## ✨ O que o aplicativo faz?
+
+| Recurso | Funcionamento |
+| --- | --- |
+| Permissão de notificações | Verifica e solicita autorização do Android, informando quando o acesso é negado. |
+| Notificação imediata | Envia a mensagem “Não esqueça de cuidar do seu sorriso! 🦷”. |
+| Lembrete em 10 segundos | Solicita um alerta de demonstração com a mensagem “Sua consulta de limpeza é amanhã às 14:00.”. |
+| Confirmação pelo alerta | Disponibiliza a ação nativa “✅ Confirmar presença” na notificação. |
+| Presença salva | Exibe a confirmação no aplicativo e mantém o estado após reabri-lo usando `localStorage`. |
+
+> O prazo de 10 segundos é demonstrativo. O Android pode atrasar a entrega por economia de bateria, pois o app não solicita acesso especial a alarmes exatos.
+
+## 🎬 Gravação da tela do celular
+
+Demonstração real fornecida pelo autor, com aproximadamente **24 segundos**, mostrando o aplicativo em uso no celular e a notificação de consulta com a ação de confirmação.
+
+<a href="./Screen_Recording_20261106_133653_Sorriso.mp4">
+  <img src="./docs/demonstracao.gif" width="300" alt="Gravação do Sorriso Odontologia no celular, mostrando os controles e a notificação de consulta" />
+</a>
+
+**[▶ Abrir o vídeo completo em MP4](./Screen_Recording_20261106_133653_Sorriso.mp4)**
+
+[Baixar a gravação original](https://github.com/MatheusNunes1B/odontologia/raw/refs/heads/main/Screen_Recording_20261106_133653_Sorriso.mp4). Se o GitHub não reproduzir o arquivo na página, use o link de download para abri-lo no player do seu dispositivo. O GIF acima é uma prévia reduzida da mesma gravação.
+
+## 📸 Prints do aplicativo
+
+Imagens extraídas da gravação original, sem simulação de interface.
+
+| Tela do aplicativo | Lembrete recebido | Ação nativa de confirmação |
+| :---: | :---: | :---: |
+| <img src="./docs/tela-app.png" width="240" alt="Tela com os três botões e presença confirmada" /> | <img src="./docs/notificacao.png" width="240" alt="Lembrete de consulta recebido no celular" /> | <img src="./docs/confirmacao.png" width="240" alt="Notificação expandida com o botão Confirmar presença" /> |
+
+## 📱 APK e código-fonte
+
+O projeto inclui o código React, o projeto Android e o workflow que compila o APK automaticamente.
+
+- **[Baixar APK debug compilado](https://github.com/MatheusNunes1B/odontologia/actions/runs/42252528647/artifacts/13520408479)** — entre na sua conta do GitHub, baixe o ZIP e extraia `app-debug.apk`.
+- **[Ver a execução concluída com sucesso](https://github.com/MatheusNunes1B/odontologia/actions/runs/42252528647)** — artifact `Sorriso-Odontologia-APK`.
+- **[Consultar os builds mais recentes](https://github.com/MatheusNunes1B/odontologia/actions/workflows/build-apk.yml)** — artifacts possuem prazo de retenção; se o download antigo expirar, use uma execução recente ou execute **Run workflow**.
+- **[Código da tela e das notificações](./src/App.jsx)** · **[Estilos](./src/index.css)** · **[Projeto Android](./android)** · **[Workflow do APK](./.github/workflows/build-apk.yml)**.
+
+Transfira o APK para o celular e abra o arquivo para instalar. Quando solicitado, autorize a instalação pela origem utilizada. Ao abrir o app, permita as notificações e teste os três botões. Para confirmar a presença, expanda o alerta da consulta e toque em **✅ Confirmar presença**.
+
+## 🛠️ Tecnologias
+
+React + Vite (JavaScript/JSX), Tailwind CSS, Capacitor, `@capacitor/local-notifications` e GitHub Actions. O estado de confirmação é armazenado localmente com `localStorage`.
 
 ## Executar
 
@@ -24,12 +77,12 @@ No Windows use `gradlew.bat assembleDebug`. Configure `JAVA_HOME` para o JDK 21 
 
 ## Baixar pelo GitHub Actions
 
-1. Envie os arquivos deste projeto para a branch `main` de `MatheusNunes1B/odontologia`.
+1. Acesse o repositório `MatheusNunes1B/odontologia` no GitHub. Novos pushes na branch `main` iniciam a compilação automaticamente.
 2. Abra **GitHub → Actions → Build Android APK**. O push inicia a compilação; também é possível usar **Run workflow**.
 3. Após a execução terminar com sucesso, abra **Artifacts → Sorriso-Odontologia-APK**.
 4. Extraia o ZIP e instale `app-debug.apk` no Android, autorizando a instalação dessa origem quando solicitado.
 
-O workflow usa Node 22, Java 21, SDK 36, `npm ci`, testes, build Vite, sincronização Capacitor e Gradle Wrapper. Gera um APK debug, sem necessidade de chave release. A configuração local do workflow não significa que uma execução remota já ocorreu.
+O workflow usa Node 22, Java 21, SDK 36, `npm ci`, testes, build Vite, sincronização Capacitor e Gradle Wrapper. Gera um APK debug, sem necessidade de chave release. A execução remota [42252528647](https://github.com/MatheusNunes1B/odontologia/actions/runs/42252528647) concluiu com sucesso e publicou o APK.
 
 ## Como funciona
 
@@ -64,7 +117,7 @@ Referências: [Local Notifications](https://capacitorjs.com/docs/apis/local-noti
 
 Executados com sucesso: `npm run build`, `npx cap sync android` e `npm test` (6 testes). Os testes verificam permissão negada, solicitação de autorização, envio imediato, data do agendamento, ação nativa configurada, bloqueio de cliques concorrentes, confirmação persistida e tratamento de falha. Não são testes instrumentados de Android nem de renderização real do React.
 
-Também executados com sucesso: `npm ci` e `gradlew.bat assembleDebug` (APK debug gerado). No emulador Android 16/API 36: instalação e abertura do APK, diálogo de permissão, recusa com mensagem, autorização, recebimento imediato (ID 251), recebimento do lembrete agendado (ID 250) em segundo plano, botão nativo de confirmação, abertura a frio pela ação após `am kill`, e persistência após encerrar/reabrir. O manifesto mesclado contém `POST_NOTIFICATIONS` e não contém `SCHEDULE_EXACT_ALARM`. Não foram testados aparelhos físicos, Doze prolongado, versões Android 12/13 ou execução remota do GitHub Actions.
+Também executados com sucesso: `npm ci` e `gradlew.bat assembleDebug` (APK debug gerado). No emulador Android 16/API 36: instalação e abertura do APK, diálogo de permissão, recusa com mensagem, autorização, recebimento imediato (ID 251), recebimento do lembrete agendado (ID 250) em segundo plano, botão nativo de confirmação, abertura a frio pela ação após `am kill`, e persistência após encerrar/reabrir. O manifesto mesclado contém `POST_NOTIFICATIONS` e não contém `SCHEDULE_EXACT_ALARM`. A gravação incluída neste README foi fornecida pelo autor e registra o uso em um celular. O GitHub Actions também concluiu a compilação e publicou o artifact do APK. Não foram realizados testes controlados de Doze prolongado ou das versões Android 12/13.
 
 Roteiro para repetir a validação no aparelho:
 
