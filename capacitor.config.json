@@ -1,0 +1,11 @@
+{
+  "appId": "com.matheus.sorrisoodonto",
+  "appName": "Sorriso Odontologia",
+  "webDir": "dist",
+  "plugins": {
+    "LocalNotifications": {
+      "smallIcon": "ic_notification",
+      "iconColor": "#2563EB"
+    }
+  }
+}

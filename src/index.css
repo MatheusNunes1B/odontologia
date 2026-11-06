@@ -1,0 +1,8 @@
+﻿@import "tailwindcss";
+
+:root { font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #173459; background: #eff6ff; font-synthesis: none; }
+body { margin: 0; min-width: 320px; }
+button { cursor: pointer; touch-action: manipulation; }
+button:disabled { cursor: wait; opacity: .55; }
+button:focus-visible { outline: 3px solid #60a5fa; outline-offset: 4px; }
+.safe-area { padding-top: max(32px, env(safe-area-inset-top, 0px)); padding-bottom: max(24px, env(safe-area-inset-bottom, 0px)); padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
